@@ -1,0 +1,23 @@
+
+
+Jevon Grimes
+FEWD November Cohort 2015
+
+Assignment 6 Feedreader Testing.
+
+I learned that writing the test before beginning the coding makes sure my plans are out in the open in not only in my head.
+
+Some resources I used for this project.
+
+
+Udacity's Javascript Testing with Mike
+Jasmine 2.2 Documentation
+https://api.jquery.com/empty/ 
+http://tosbourn.com/using-loops-in-jasmine/ 
+https://github.com/angular/protractor/issues/159
+http://stackoverflow.com/questions/9425158/jasmine-cant-trigger-click-event 
+http://jasmine.github.io/2.0/introduction.html 
+http://pivotallabs.com/writing-beautiful-specs-jasmine-custom-matchers/
+http://jshint.com/ 
+http://stackoverflow.com/questions/17066290/pushing-to-github-messes-up-my-code-indentation 
+
