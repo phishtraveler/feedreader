@@ -81,7 +81,7 @@ h2 {
 .menu-hidden .menu {
     -webkit-transition: transform 0.2s;
     -webkit-transform: translate3d(-12em, 0, 0);
-    transform: translate3d(-12em, 0, 0, 0);
+    transform: translate3d(-12em, 0, 0);
     transition: transform 0.2s;
 }
 
