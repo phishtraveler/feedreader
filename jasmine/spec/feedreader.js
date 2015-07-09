@@ -92,7 +92,7 @@ $(function() {
     });
 
     /* This is a test suite named "Initial Entries" */
-    //7-8-2015  REconfigured this test with an array
+    //7-8-2015  Reconfigured this test with an array
     describe('Initial entries', function() {
         /* This test makes sure when the loadFeed
          * function is called and completes its work, there is at least
