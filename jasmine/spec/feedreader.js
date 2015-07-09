@@ -1,4 +1,5 @@
 /* feedreader.js
+ *FEWD Jevon Grimes November Cohort
  *
  * This is the spec file that Jasmine will read and contains
  * all of the tests that will be run against your application.
@@ -103,7 +104,7 @@ $(function() {
          var $entryArray = [],
          $newEntryArray;
          beforeEach(function(done) {
-            //Load feeds with the first items in the array
+            //Load feeds with the furst items in the array
             loadFeed(0, function(){
                 $entryArray = $('.feed .entry');
                 done();
