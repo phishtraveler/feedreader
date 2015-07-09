@@ -34,11 +34,12 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it('has a non-empty URL', function() {
-            for (var i=0; i<allFeeds.length; i++) {
+         it('has a URL and the URL is not empty', function() {
+            for (var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].name.length).not.toBe(0);
+                expect(allFeeds[i].url.length).toBeGreaterThan(0);
             }
+
          });
 
 
@@ -46,14 +47,14 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it('has a non-empty name', function() {
-            for (var i=0; i<allFeeds.length; i++) {
+         it('has a name and the name is not empty', function() {
+            for (var i = 0; i < allFeeds.length; i++) { 
                 expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name.length).not.toBe(0);
+                expect(allFeeds[i].name.length).toBeGreaterThan(0);
             }
+
          });
     });
-
 
     /* This test suite makes sure "The menu" is hidden */
     describe('the menu', function() {
@@ -75,59 +76,63 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
     describe('menu icon click', function() {
-        
             beforeEach(function() {
                 $('.menu-icon-link').trigger('click');
             });
 
             //Menu Button is displayed
             it('menu button displayed', function() {
-                expect ($('body').hasClass('menu-hidden')).toBe(false);
+                expect($('body').hasClass('menu-hidden')).toBe(false);
             });
             //Menu Button clicked to hide
             it('menu button hidden', function() {
-                expect ($('body').hasClass('menu-hidden')).toBe(true);
+                expect($('body').hasClass('menu-hidden')).toBe(true);
             });
         });
     });
 
     /* This is a test suite named "Initial Entries" */
+    //7-8-2015  REconfigured this test with an array
     describe('Initial entries', function() {
-
-
         /* This test makes sure when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-          beforeEach(function(done) {
-            loadFeed(0,done);
-        }) ;
-        it('has additional elements', function(done) {
-            expect($('.feed').children().length).toBeGreaterThan(0);
+         var $entryArray = [],
+         $newEntryArray;
+         beforeEach(function(done) {
+            //Load feeds with the furst items in the array
+            loadFeed(0, function(){
+                $entryArray = $('.feed .entry');
+                done();
+            });
+          });
+          //Make sure the array has at least one item  
+          it('has additional elements', function(done) {
+            expect($entryArray.length > 1).toBe(true);
             done();
-         });
+          });
     });
 
     // This is a test suite named "New Feed Selection"
 
     describe('New Feed Selection', function() {
-        var entries;
-         
+        var $entryArray;
         /* This test makes sure when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-            //Getting the second feed's first text entry
-        beforeAll(function(done) {
-            entries = $('.feed a').children('.entry');
-            loadFeed(2, done);
+        //Getting the second feed's first text entry
+       beforeEach(function(done) {
+            $entryArray = $('.feed .entry').text();
+            loadFeed(2, done)
         });
 
         //Getting the first text entry from third feed and compare to second
         it('should have new content', function(done) {
-            expect($('.feed a').children('.entry')).not.toBe(entries);
+            expect($('.feed .entry').text('.entry')).not.toBe($entryArray);
             done();
         });
 
