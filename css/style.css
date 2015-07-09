@@ -17,7 +17,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #111;
+    color: #LLL;
 }
 
 a:hover h2 {
@@ -31,7 +31,7 @@ h1 {
 }
 
 h2 {
-    font-weight: 200;
+    font-weight: 100;
     margin: 0;
 }
 
