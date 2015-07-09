@@ -103,7 +103,7 @@ $(function() {
          var $entryArray = [],
          $newEntryArray;
          beforeEach(function(done) {
-            //Load feeds with the furst items in the array
+            //Load feeds with the first items in the array
             loadFeed(0, function(){
                 $entryArray = $('.feed .entry');
                 done();
