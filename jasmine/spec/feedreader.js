@@ -100,40 +100,42 @@ $(function() {
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
-         var $entryArray = [],
-         $newEntryArray;
-         beforeEach(function(done) {
-            //Load feeds with the furst items in the array
-            loadFeed(0, function(){
-                $entryArray = $('.feed .entry');
-                done();
-            });
-          });
-          //Make sure the array has at least one item  
-          it('has additional elements', function(done) {
-            expect($entryArray.length > 1).toBe(true);
-            done();
-          });
-    });
+        */
+         
+        beforeEach(function(done){ 
+            loadFeed(0,done); 
+        }); 
+        it("should have at least 1 entry", function(done){ 
+            expect($('.feed').length).toBeGreaterThan(0); 
+            expect($('.entry').length).toBeGreaterThan(0); 
+            done(); 
+        }); 
+    }); 
+
+
 
     // This is a test suite named "New Feed Selection"
 
-    describe('New Feed Selection', function() {
-        var $entryArray;
+    describe('New Feed Selection', function(done) {
+        var firstEntry;
+        var secondEntry
         /* This test makes sure when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
         //Getting the second feed's first text entry
-       beforeEach(function(done) {
-            $entryArray = $('.feed .entry').text();
-            loadFeed(2, done)
+        beforeEach(function(done) {
+            $('.feed').empty();
+            loadFeed(0, function(){
+            firstEntry = $('.feed').html();
+            loadFeed(1, done);
+            });
         });
 
         //Getting the first text entry from third feed and compare to second
-        it('should have new content', function(done) {
-            expect($('.feed .entry').text('.entry')).not.toBe($entryArray);
+        it('should make certain the new feed has new content', function(done) {
+            secondEntry = $('.feed').html();
+            expect(firstEntry).not.toBe(secondEntry);
             done();
         });
 
