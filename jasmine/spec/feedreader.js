@@ -101,16 +101,16 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
         */
-         
-        beforeEach(function(done){ 
-            loadFeed(0,done); 
-        }); 
-        it("should have at least 1 entry", function(done){ 
-            expect($('.feed').length).toBeGreaterThan(0); 
-            expect($('.entry').length).toBeGreaterThan(0); 
-            done(); 
-        }); 
-    }); 
+        
+        beforeEach(function(done){
+            loadFeed(0,done);
+        });
+        it("should have at least 1 entry", function(done){
+            expect($('.feed').length).toBeGreaterThan(0);
+            expect($('.entry').length).toBeGreaterThan(0);
+            done();
+        });
+    });
 
 
 
@@ -118,7 +118,7 @@ $(function() {
 
     describe('New Feed Selection', function(done) {
         var firstEntry;
-        var secondEntry
+        var secondEntry;
         /* This test makes sure when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
