@@ -49,7 +49,7 @@ $(function() {
          * and that the name is not empty.
          */
          it('has a name and the name is not empty', function() {
-            for (var i = 0; i < allFeeds.length; i++) { 
+            for (var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name.length).toBeGreaterThan(0);
             }
@@ -60,7 +60,6 @@ $(function() {
     /* This test suite makes sure "The menu" is hidden */
     describe('the menu', function() {
 
-    
         /* The test makes sure the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
