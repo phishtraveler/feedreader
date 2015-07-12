@@ -100,7 +100,6 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
         */
-        
         beforeEach(function(done){
             loadFeed(0,done);
         });
